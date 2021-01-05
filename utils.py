@@ -18,6 +18,7 @@ def get_img(image):
 
 def extract_images(img):
 # Performing OTSU threshold 
+    try:
 	ret, thresh1 = cv2.threshold(img, 0, 255, cv2.THRESH_OTSU | cv2.THRESH_BINARY_INV) 
 	# Kernel size increases or decreases the area  
 	# of the rectangle to be detected. 
@@ -30,6 +31,8 @@ def extract_images(img):
 	contours, hierarchy = cv2.findContours(dilation, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE) 
 	# Creating a copy of image 
 	return contours
+    except:
+        return False
 
 def crop_img(contours,img):
 	for cnt in contours:
