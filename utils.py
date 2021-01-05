@@ -53,7 +53,10 @@ def get_shapes_array(contours,img):
 	return shapes_array
 
 def get_size(shapes_array):
-    return ceil(sum(shapes_array)/len(shapes_array))
+    try:
+    	return ceil(sum(shapes_array)/len(shapes_array))
+    except:
+        return False
 
 def crop_to_avg_size(img,size,dsize,contours):
 	for cnt in contours:
