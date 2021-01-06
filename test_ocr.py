@@ -1,18 +1,12 @@
 import utils
-import cv2
 import numpy as np
 import statistics 
 import math
 
 
-def test_get_img():
-	assert isinstance(utils.get_img('terr1.png'),np.ndarray) == True
 
 def test_get_size():
 	assert utils.get_size([8, 14, 13, 8, 42, 7, 6, 9, 20, 41, 40, 40, 43, 44, 45, 43, 43, 43]) == 29
-
-def test_get_img():
-	assert isinstance(utils.get_img('terr1.png'),np.ndarray) == True
 
 def test_compute_dist_between_characters():
 	dist = utils.compute_dist_between_characters([1,2,3,4,5])
