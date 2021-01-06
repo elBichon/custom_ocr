@@ -18,21 +18,21 @@ def get_img(image):
 
 def extract_images(img):
 # Performing OTSU threshold 
-    try:
-	ret, thresh1 = cv2.threshold(img, 0, 255, cv2.THRESH_OTSU | cv2.THRESH_BINARY_INV) 
-	# Kernel size increases or decreases the area  
-	# of the rectangle to be detected. 
-	# A smaller value like (10, 10) will detect  
-	# each word instead of a sentence. 
-	rect_kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (2, 2)) 
-	# Appplying dilation on the threshold image 
-	dilation = cv2.dilate(thresh1, rect_kernel, iterations = 1) 
-	# Finding contours 
-	contours, hierarchy = cv2.findContours(dilation, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE) 
-	# Creating a copy of image 
-	return contours
-    except:
-        return False
+	try:
+		ret, thresh1 = cv2.threshold(img, 0, 255, cv2.THRESH_OTSU | cv2.THRESH_BINARY_INV) 
+		# Kernel size increases or decreases the area  
+		# of the rectangle to be detected. 
+		# A smaller value like (10, 10) will detect  
+		# each word instead of a sentence. 
+		rect_kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (2, 2)) 
+		# Appplying dilation on the threshold image 
+		dilation = cv2.dilate(thresh1, rect_kernel, iterations = 1) 
+		# Finding contours 
+		contours, hierarchy = cv2.findContours(dilation, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE) 
+		# Creating a copy of image 
+		return contours
+	except:
+		return False
 
 def crop_img(contours,img):
 	for cnt in contours:
@@ -53,10 +53,10 @@ def get_shapes_array(contours,img):
 	return shapes_array
 
 def get_size(shapes_array):
-    try:
-    	return ceil(sum(shapes_array)/len(shapes_array))
-    except:
-        return False
+	try:
+		return ceil(sum(shapes_array)/len(shapes_array))
+	except:
+		return False
 
 def crop_to_avg_size(img,size,dsize,contours):
 	for cnt in contours:
