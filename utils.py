@@ -125,5 +125,7 @@ def recreate_sentences(words,dist_between_characters,images_list):
 	return sentence 
 
 def correct_sentence(sentence):
-	return sentence.replace('a1a2','a')
-
+	try:
+		return sentence.replace('a1a2','a')
+	except:
+		return False
