@@ -3,8 +3,6 @@ import numpy as np
 import statistics 
 import math
 
-
-
 def test_get_size():
 	assert utils.get_size([8, 14, 13, 8, 42, 7, 6, 9, 20, 41, 40, 40, 43, 44, 45, 43, 43, 43]) == 29
 
